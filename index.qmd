@@ -33,42 +33,15 @@ Zhang and Yang (2015) [@zhangyang2015] focus on cross-validation as a model sele
 
 Wong and Yeh (2020) [@wongyeh2020] consider the effect of repeatedly performing k-fold cross-validation on the accuracy of classification algorithms. The article suggests different ways to calculate variance, as a relatively small variance indicates a more reliable accuracy estimate. The different variance variance estimates are evaluated based on estimation stability and sensitivity to the mean estimate. K-nearest neighbors with k=1 (1NN) was used to explore the effect of replications on accuracy estimates. Wong and Yeh found that the probability of an instance in two replications is dependent, as the number of instances decreases as the number of folds increases. The article includes an experiment to compare the effect of the number of folds on the normalized dependency of accuracy estimates between two different classification algorithms, a support vector machine (SVM) and the Naıve Bayesian classifier (NBC). Twenty different datasets were used, with a varying number of instances and features. The number of folds tested was two, five, and ten, as these are the typical number of folds used. Both algorithms demonstrated a higher number of significant scores as the folds increased. Ten-fold cross-validation produced the highest number of significant scores and should be considered the first choice for k-fold cross-validation. The article claims for scenarios where 10-fold cross-validation violates large-sample conditions that the next choice should be to repeat 5-fold cross-validation twice.
 
+Filzmoser et al. (2009) [@Filzmoser2009] aimed to test a strategy that would enhance complex linear models from small datasets, as well as estimate prediction errors for new observations. Their focus was repeated double cross validation (rdCV). This strategy involves splitting the data into training and testing sets in an outer loop for estimating prediction, then an inner loop uses the training set produced in the outer loop to perform cross validation. This process is repeated many times, which produces an increasing amount of predicted outcome values. These values can be used for better model performance and variability estimation. Filzmoser et al. (2009) applied this method to two real chemistry data sets to investigate the effect the number of repetitions and segments has on the stability of rdCV’s result. Greater segmentation in the outer loop requires greater computing time and effort, but more segments also mean more values are calculated. The article claims that four segments in the outer loop and seven segments in the inner loop balance these concerns. Variability was also found to decrease with an increasing number of repetitions, so the recommended number of repetitions is 100, as opposed to 20 or 50. The performance of rdCV using these parameters for model selection was compared to the performance of 7-fold CV and bootstrap, and it was found that their variability was much lower using rdCV. 
+
+
+
 ## Methods
 
 ## Analysis and Results
 
 ### Data and Visualization
-
-A study was conducted to determine how...
-
-```{r, warning=FALSE, echo=T, message=FALSE}
-# loading packages 
-library(tidyverse)
-library(knitr)
-library(ggthemes)
-library(ggrepel)
-library(dslabs)
-```
-
-```{r, warning=FALSE, echo=TRUE}
-# Load Data
-kable(head(murders))
-
-ggplot1 = murders %>% ggplot(mapping = aes(x=population/10^6, y=total)) 
-
-  ggplot1 + geom_point(aes(col=region), size = 4) +
-  geom_text_repel(aes(label=abb)) +
-  scale_x_log10() +
-  scale_y_log10() +
-  geom_smooth(formula = "y~x", method=lm,se = F)+
-  xlab("Populations in millions (log10 scale)") + 
-  ylab("Total number of murders (log10 scale)") +
-  ggtitle("US Gun Murders in 2010") +
-  scale_color_discrete(name = "Region")+
-      theme_bw()
-  
-
-```
 
 ### Statistical Modeling
 
