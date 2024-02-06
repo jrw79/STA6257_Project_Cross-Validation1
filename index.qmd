@@ -21,7 +21,7 @@ editor:
 
 ### What is Cross-Validation?
 
-Cross-validation takes basic train-test splitting to the next level by partitioning the data multiple times to perform the analysis and then observing the variance in the unbiased results between partitions (Lei, 2020). It is commonly used for model selection by creating multiple models from the training set and comparing their performance on the testing set. There are many different methods of cross-validation, each claiming to address different problems. A popular method is called Monte Carlo cross-validation (MCCV), where the basic idea is to use random ratios without replacement when splitting your data sets [@Xu2004]. MCCV aims to decrease overfitting by avoiding an unnecessarily large model. An alternative to MCCV is k-fold cross-validation [@wongyeh2020]. K-fold cross-validation splits the data into k subsets, then fits the model on every subset but one. The subset that was used to train a model is used as the testing set, and the process is repeated until every subset is used as the testing subset. Even when researchers aim to create new methods of cross-validation, k-folds are still commonly integrated into the updated strategy, as is demonstrated in the literature re	view below.
+Cross-validation takes basic train-test splitting to the next level by partitioning the data multiple times to perform the analysis and then observing the variance in the unbiased results between partitions (Lei, 2020). It is commonly used for model selection by creating multiple models from the training set and comparing their performance on the testing set. There are many different methods of cross-validation, each claiming to address different problems. A popular method is called Monte Carlo cross-validation (MCCV), where the basic idea is to use random ratios without replacement when splitting your data sets [@Xu2004]. MCCV aims to decrease overfitting by avoiding an unnecessarily large model. An alternative to MCCV is k-fold cross-validation [@wongyeh2020]. K-fold cross-validation splits the data into k subsets, then fits the model on every subset but one. The subset that was used to train a model is used as the testing set, and the process is repeated until every subset is used as the testing subset. Even when researchers aim to create new methods of cross-validation, k-folds are still commonly integrated into the updated strategy, as is demonstrated in the literature review below.
 
 ### Related work
 
@@ -46,10 +46,6 @@ splitting cross-validation (RSCV), with their goal being to ensure the calibrati
 ### Data and Visualization
 
 ### Statistical Modeling
-
-```{r}
-
-```
 
 ### Conclusion
 
